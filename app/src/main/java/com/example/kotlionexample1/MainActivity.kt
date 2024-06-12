@@ -1,12 +1,14 @@
 package com.example.kotlionexample1
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+    var TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,4 +19,25 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG,"destroyed")
+    }
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG,"started")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG,"stopped")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG,"paused")
+    }
+
+
 }
